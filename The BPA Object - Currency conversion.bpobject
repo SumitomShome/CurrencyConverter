@@ -852,7 +852,7 @@
   <stage stageid="661de34f-0210-411c-82f6-fea2e4e248c6" name="End" type="End">
     <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
     <loginhibit />
-    <display x="180" y="15" />
+    <display x="15" y="75" />
   </stage>
   <stage stageid="b08a9b6d-f55d-4b2c-b7c2-7b2717c0d159" name="Note1" type="Note">
     <subsheetid>49d1d95f-16b6-4f94-85d5-1cc3cc23e9db</subsheetid>
@@ -878,7 +878,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="a525e7d4-91dc-4ca1-b11c-8b31e85e81d5" name="MS Excel VBO::Create Instance" type="Action">
     <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="90" y="-105" />
+    <display x="15" y="-60" />
     <inputs>
       <input type="flag" name="Enable Events" friendlyname="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="True" />
     </inputs>
@@ -899,7 +899,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="c2605026-2b5f-444c-9ac1-5bb1b49188d3" name="MS Excel VBO::Open Workbook" type="Action">
     <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="180" y="-105" />
+    <display x="15" y="-15" />
     <inputs>
       <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
       <input type="text" name="File name" friendlyname="File name" narrative="The path and name of the file which should be opened." expr="&quot;G:\Capgemini\CurrencyConverter\CurrencyConversionExcel.xlsx&quot;" />
@@ -921,7 +921,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="2c9e2d86-bac1-4483-b690-97d7e38846b9" name="MS Excel VBO::Get Worksheet As Collection" type="Action">
     <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="180" y="-45" />
+    <display x="15" y="30" />
     <inputs>
       <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the worksheet which should be retrieved resides. The default of zero indicates the currently active instance." expr="[handle]" />
       <input type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name of the workbook which contains the sheet required. The default empty text indicates the currently active workbook on the specified instance." expr="[Workbook Name]" />
@@ -930,7 +930,7 @@ You will not be able to call this action from a business process, nor will it be
     <outputs>
       <output type="collection" name="Data" friendlyname="Data" narrative="The collection containing the data from the specified worksheet - the column IDs will be gleaned from the first row on the sheet being retrieved." stage="Data" />
     </outputs>
-    <onsuccess>e4c73441-0563-42e6-8715-ea7eed74f65f</onsuccess>
+    <onsuccess>661de34f-0210-411c-82f6-fea2e4e248c6</onsuccess>
     <resource object="MS Excel VBO" action="Get Worksheet As Collection" />
   </stage>
   <stage stageid="1e881e10-8460-44c7-8e5f-01605dab9133" name="Data" type="Collection">
@@ -944,78 +944,6 @@ You will not be able to call this action from a business process, nor will it be
       <field name="To" type="text" />
       <field name="Conversion factor" type="text" />
     </collectioninfo>
-  </stage>
-  <stage stageid="d29046b6-e0d1-4bde-aa8b-5a9915430efc" name="Reader1" type="Read">
-    <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
-    <loginhibit />
-    <display x="30" y="-45" />
-    <onsuccess>893b9c46-d0f2-4dc2-8a93-6d0c76b0e295</onsuccess>
-    <step stage="Data.From">
-      <element id="94ce0007-9a18-4613-88d1-ab39fd9a7148" />
-      <action>
-        <id>WebGetValue</id>
-        <arguments>
-          <argument>
-            <id>trackingid</id>
-            <value>
-            </value>
-          </argument>
-        </arguments>
-      </action>
-    </step>
-    <step stage="Data.To">
-      <element id="55ffb2c6-eac1-4710-85ba-183f037d91d2" />
-      <action>
-        <id>WebGetValue</id>
-        <arguments>
-          <argument>
-            <id>trackingid</id>
-            <value>
-            </value>
-          </argument>
-        </arguments>
-      </action>
-    </step>
-    <step stage="Data.Conversion factor">
-      <element id="8826de96-a2ee-46bd-b882-ad2a1336a0ce" />
-      <action>
-        <id>WebGetValue</id>
-        <arguments>
-          <argument>
-            <id>trackingid</id>
-            <value>
-            </value>
-          </argument>
-        </arguments>
-      </action>
-    </step>
-  </stage>
-  <stage stageid="893b9c46-d0f2-4dc2-8a93-6d0c76b0e295" name="MS Excel VBO::Write Collection" type="Action">
-    <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
-    <loginhibit onsuccess="true" />
-    <display x="30" y="15" />
-    <inputs>
-      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
-      <input type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[Workbook Name]" />
-      <input type="text" name="Worksheet Name" friendlyname="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
-      <input type="collection" name="Collection" friendlyname="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[Data]" />
-      <input type="text" name="Cell Reference" friendlyname="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
-      <input type="flag" name="Include Column Names" friendlyname="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="True" />
-    </inputs>
-    <onsuccess>7ee69c4b-d92b-47bd-8675-b7b38450e487</onsuccess>
-    <resource object="MS Excel VBO" action="Write Collection" />
-  </stage>
-  <stage stageid="7ee69c4b-d92b-47bd-8675-b7b38450e487" name="MS Excel VBO::Close Workbook" type="Action">
-    <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
-    <loginhibit onsuccess="true" />
-    <display x="105" y="15" />
-    <inputs>
-      <input type="number" name="handle" friendlyname="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
-      <input type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name of the workbook which should be closed." expr="[Workbook Name]" />
-      <input type="flag" name="Save Data" friendlyname="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="True" />
-    </inputs>
-    <onsuccess>661de34f-0210-411c-82f6-fea2e4e248c6</onsuccess>
-    <resource object="MS Excel VBO" action="Close Workbook" />
   </stage>
   <stage stageid="c4ccebde-a9cb-49c3-9ea1-a2bc5df3c382" name="Launch currency converter" type="SubSheetInfo">
     <subsheetid>7937dc3c-6e53-4b9f-ab3e-8e7db49d3b77</subsheetid>
@@ -1073,45 +1001,19 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="3db55c57-5d3d-42f4-81e2-d980165f48c6" name="Start" type="Start">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="15" y="-105" />
-    <onsuccess>4c914dce-53c4-4f74-8838-75ad1927e6df</onsuccess>
+    <display x="-15" y="-105" />
+    <onsuccess>2c71972d-5bad-4a69-80e0-6f01343e26ff</onsuccess>
   </stage>
   <stage stageid="31f28175-53b6-4cb5-9939-ec6d5e4fb293" name="End" type="End">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="270" y="45" />
+    <display x="225" y="45" />
   </stage>
   <stage stageid="af515a23-5af6-4aa8-87ef-d39f0ce74a60" name="Reader2" type="Read">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
-    <display x="165" y="0" />
+    <display x="135" y="0" />
     <onsuccess>21756e39-4cce-4c68-b3dc-564197c4100b</onsuccess>
-    <step stage="Currency conversion collection.From">
-      <element id="94ce0007-9a18-4613-88d1-ab39fd9a7148" />
-      <action>
-        <id>WebGetValue</id>
-        <arguments>
-          <argument>
-            <id>trackingid</id>
-            <value>
-            </value>
-          </argument>
-        </arguments>
-      </action>
-    </step>
-    <step stage="Currency conversion collection.To">
-      <element id="55ffb2c6-eac1-4710-85ba-183f037d91d2" />
-      <action>
-        <id>WebGetValue</id>
-        <arguments>
-          <argument>
-            <id>trackingid</id>
-            <value>
-            </value>
-          </argument>
-        </arguments>
-      </action>
-    </step>
-    <step stage="Currency conversion collection.Conversion factor">
+    <step stage="Converted value">
       <element id="8826de96-a2ee-46bd-b882-ad2a1336a0ce" />
       <action>
         <id>WebGetValue</id>
@@ -1128,7 +1030,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="5ddcaeb3-b769-4bef-9758-26847e77df26" name="Currency conversion collection" type="Collection">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="-150" y="45" />
+    <display x="-150" y="15" />
     <datatype>collection</datatype>
     <alwaysinit />
     <collectioninfo>
@@ -1149,11 +1051,11 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="21756e39-4cce-4c68-b3dc-564197c4100b" name="Collections::Add Row" type="Action">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="270" y="0" />
+    <display x="225" y="0" />
     <inputs>
       <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Currency conversion collection&quot;" />
     </inputs>
-    <onsuccess>31f28175-53b6-4cb5-9939-ec6d5e4fb293</onsuccess>
+    <onsuccess>8ea08608-d3c5-44a0-b051-3803c6ae036c</onsuccess>
     <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
   </stage>
   <stage stageid="b771fea8-b642-4953-98d3-31a51888d928" name="XPath for from" type="Data">
@@ -1183,7 +1085,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="4c914dce-53c4-4f74-8838-75ad1927e6df" name="Click on search bar for from" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="105" y="-105" />
+    <display x="210" y="-105" />
     <onsuccess>9321b563-f6c1-4344-9a08-aedce75aa975</onsuccess>
     <step>
       <element id="0da5d304-f035-4c3c-9d9f-bcb3bbea7e9f" />
@@ -1202,7 +1104,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="9321b563-f6c1-4344-9a08-aedce75aa975" name="From value" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="180" y="-105" />
+    <display x="300" y="-105" />
     <onsuccess>5813ed54-9784-42e3-8adf-d04c6fd32b4a</onsuccess>
     <step>
       <element id="94ce0007-9a18-4613-88d1-ab39fd9a7148" />
@@ -1221,7 +1123,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="fc1884ae-595e-4520-98df-24b8574e8dfc" name="To value" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="270" y="-60" />
+    <display x="225" y="-60" />
     <onsuccess>355affce-b003-4deb-a97d-42d07b141bed</onsuccess>
     <step>
       <element id="55ffb2c6-eac1-4710-85ba-183f037d91d2" />
@@ -1240,7 +1142,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="3b2aae2a-77aa-49ae-988a-bf343bd769c2" name="Find conversion factor" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="30" y="0" />
+    <display x="45" y="0" />
     <onsuccess>af515a23-5af6-4aa8-87ef-d39f0ce74a60</onsuccess>
     <step>
       <element id="8826de96-a2ee-46bd-b882-ad2a1336a0ce" />
@@ -1259,7 +1161,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="5813ed54-9784-42e3-8adf-d04c6fd32b4a" name="Click on search button for to" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="270" y="-105" />
+    <display x="300" y="-60" />
     <onsuccess>fc1884ae-595e-4520-98df-24b8574e8dfc</onsuccess>
     <step>
       <element id="1d2f15a7-3ae7-4581-8fd9-b96cc80f751c" />
@@ -1278,7 +1180,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="355affce-b003-4deb-a97d-42d07b141bed" name="Enter" type="Navigate">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="195" y="-60" />
+    <display x="135" y="-60" />
     <onsuccess>650337ba-9779-40a9-8457-ab4e2057d449</onsuccess>
     <step>
       <element id="93b55571-ce55-4d86-bf64-6c927f5f2bdb" />
@@ -1297,7 +1199,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="40f52c34-ddfb-4e27-a241-8a85c4a6c446" name="Time Out1" type="WaitEnd">
     <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="75" y="-45" w="30" h="30" />
+    <display x="-15" y="-15" w="30" h="30" />
     <onsuccess>3b2aae2a-77aa-49ae-988a-bf343bd769c2</onsuccess>
     <groupid>8e45935d-02cb-4251-ba18-5c6767300303</groupid>
   </stage>
@@ -1309,11 +1211,43 @@ You will not be able to call this action from a business process, nor will it be
     <choices />
     <timeout>15</timeout>
   </stage>
-  <stage stageid="e4c73441-0563-42e6-8715-ea7eed74f65f" name="GetValue" type="SubSheet">
-    <subsheetid>35e6b821-e1f8-473a-9a60-db09fb93750c</subsheetid>
+  <stage stageid="2c71972d-5bad-4a69-80e0-6f01343e26ff" name="Action 1" type="SubSheet">
+    <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
     <loginhibit />
-    <display x="105" y="-45" />
-    <onsuccess>d29046b6-e0d1-4bde-aa8b-5a9915430efc</onsuccess>
-    <processid>10e839b3-e05c-4ca0-8233-acea1499f774</processid>
+    <display x="60" y="-105" />
+    <onsuccess>518f2c6b-2d2c-4096-a844-204c4f446c14</onsuccess>
+    <processid>35e6b821-e1f8-473a-9a60-db09fb93750c</processid>
+  </stage>
+  <stage stageid="518f2c6b-2d2c-4096-a844-204c4f446c14" name="Loop Start1" type="LoopStart">
+    <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
+    <loginhibit />
+    <display x="135" y="-105" />
+    <onsuccess>4c914dce-53c4-4f74-8838-75ad1927e6df</onsuccess>
+    <groupid>f2f167d3-1636-46f4-8275-0ba99434da78</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Currency conversion collection</loopdata>
+  </stage>
+  <stage stageid="046d27d9-6348-4791-9c89-855121812951" name="Loop End1" type="LoopEnd">
+    <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
+    <loginhibit />
+    <display x="300" y="45" />
+    <onsuccess>31f28175-53b6-4cb5-9939-ec6d5e4fb293</onsuccess>
+    <groupid>f2f167d3-1636-46f4-8275-0ba99434da78</groupid>
+  </stage>
+  <stage stageid="8ea08608-d3c5-44a0-b051-3803c6ae036c" name="Calc1" type="Calculation">
+    <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
+    <loginhibit />
+    <display x="300" y="0" />
+    <onsuccess>046d27d9-6348-4791-9c89-855121812951</onsuccess>
+    <calculation expression="[Converted value]" stage="Currency conversion collection.Conversion factor" />
+  </stage>
+  <stage stageid="28cb8229-a017-4d9d-923a-c01b58b464e0" name="Converted value" type="Data">
+    <subsheetid>10e839b3-e05c-4ca0-8233-acea1499f774</subsheetid>
+    <loginhibit />
+    <display x="-180" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
   </stage>
 </process>
